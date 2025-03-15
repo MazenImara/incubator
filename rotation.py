@@ -28,5 +28,5 @@ class Rotation:
 
     def rotate(self):
         self.relay.high()
-        self.motor.step(500)
+        self.motor.step(750)
         self.relay.low()

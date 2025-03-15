@@ -18,11 +18,17 @@ btnUp = Pin(17, Pin.IN, Pin.PULL_UP)
 btnChange = Pin(18, Pin.IN, Pin.PULL_UP)
 
 sensorTimer = 0
+testRotate = 0
 while True:
     utime.sleep(0.1)
     sensorTimer += 0.1
 
-    rotation.check()
+    rotation.check()    
+
+    if testRotate > 0 and sensorTimer > 2:
+        print("*************")
+        rotation.rotate()
+        testRotate -=1
     
     if sensorTimer > 2 and display.pageNum == 0:
         sensor.measure()
@@ -44,9 +50,7 @@ while True:
         display.page()
 
     if btnUp.value() == 0 and btnDown.value() == 0:
-        rotation.rotate()
-
-
+        testRotate = 5
 
 
 
