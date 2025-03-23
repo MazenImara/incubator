@@ -39,7 +39,7 @@ while True:
         display.page0()
         sensorTimer = 0
 
-    if not wifi.connected() and wifiTimer > 1:
+    if not wifi.connected() and wifiTimer > 3:
         wifi.connect()
         wifiTimer = 0
 

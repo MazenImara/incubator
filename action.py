@@ -33,7 +33,7 @@ class Action:
             print("Hum is ok")
 
     def updateServer(self):
-        if self.wifi.connected:
+        if self.wifi.connected():
             url = f"http://yallacloud.ddns.net/incubator/index.php?update&hum={self.setting.settings['currentHum']}&temp={self.setting.settings['currentTemp']}"
 
             try:
@@ -41,4 +41,4 @@ class Action:
                 print('Response status code:', response.status_code)
                 print('Page content:', response.text)
             except Exception as e:
-                print('Error visiting the page:', e)            
+                print('Error while update the server:', e)
